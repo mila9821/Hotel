@@ -19,7 +19,7 @@ public class ClienteController {
         return clienteService.findAll();
     }
 
-    @GetMapping("/rol/{id}")
+    @GetMapping("/clientes/{id}")
     public Cliente mostrar(@PathVariable Long id){
         return clienteService.findById(id);
     }
@@ -30,7 +30,7 @@ public class ClienteController {
         return clienteService.save(cliente);
     }
 
-    @PutMapping("/rol/{id}")
+    @PutMapping("/clientes/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente actualizar(@RequestBody Cliente cliente, @PathVariable Long id){
         Cliente clienteOriginal = clienteService.findById(id);
@@ -38,7 +38,7 @@ public class ClienteController {
         return clienteService.save(cliente);
     }
 
-    @DeleteMapping("/rol/{id}")
+    @DeleteMapping("/clientes/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         clienteService.delete(id);

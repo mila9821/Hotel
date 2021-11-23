@@ -13,5 +13,5 @@ insert into cliente(dni, email, foto, modo, nombre, pais, telefono) values("4520
 insert into detalle_reserva(adelanto, dias, ingreso, precio, salida) values(20, 2, "22/11/21", 35, "24/11/21");
 insert into detalle_reserva(adelanto, dias, ingreso, precio, salida) values(30, 2, "26/11/21", 65, "28/11/21");
 
-insert into habitacion(descripcion, estado, foto, nombre, precio, tipo) values("dos camas, ducha caliente, wifi", "ocupado", "foto", "502", 60, "Doble");
-insert into habitacion(descripcion, estado, foto, nombre, precio, tipo) values("una cama, cable, wifi", "reservado", "foto", "502", 60, "Simple");
+insert into habitacion(descripcion, estado, foto, nombre, precio, tipo) values("dos camas, ducha caliente, wifi", "ocupado", "foto", "501", 60, "Doble");
+insert into habitacion(descripcion, estado, foto, nombre, precio, tipo) values("una cama, cable, wifi", "reservado", "foto", "502", 30, "Simple");

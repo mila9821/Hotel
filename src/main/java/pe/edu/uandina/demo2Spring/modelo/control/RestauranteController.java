@@ -1,9 +1,9 @@
 package pe.edu.uandina.demo2Spring.modelo.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import pe.edu.uandina.demo2Spring.modelo.Habitacion;
 import pe.edu.uandina.demo2Spring.modelo.Restaurante;
 import pe.edu.uandina.demo2Spring.modelo.services.IRestauranteService;
 
@@ -18,5 +18,25 @@ public class RestauranteController {
     @GetMapping("/restaurante")
     public List<Restaurante> listar(){
         return restauranteService.findAll();
+    }
+
+    @PostMapping("/restaurante")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Restaurante crear(@RequestBody Restaurante restaurante) {
+        return restauranteService.save(restaurante);
+    }
+
+    @PutMapping("/restaurante/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Restaurante actualizar(@RequestBody Restaurante restaurante, @PathVariable Long id){
+        Restaurante restauranteOriginal = restauranteService.findById(id);
+        restauranteOriginal.setPrecioPlato(restauranteOriginal.getPrecioPlato());
+        return restauranteService.save(restaurante);
+    }
+
+    @DeleteMapping("/restaurante/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminar(@PathVariable Long id) {
+        restauranteService.delete(id);
     }
 }

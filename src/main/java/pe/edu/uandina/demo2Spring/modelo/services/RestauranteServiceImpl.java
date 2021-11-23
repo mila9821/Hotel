@@ -2,6 +2,7 @@ package pe.edu.uandina.demo2Spring.modelo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.uandina.demo2Spring.modelo.Restaurante;
 import pe.edu.uandina.demo2Spring.modelo.dao.IAdministradorDao;
 import pe.edu.uandina.demo2Spring.modelo.dao.IRestauranteDao;
@@ -15,5 +16,24 @@ public class RestauranteServiceImpl implements IRestauranteService{
     @Override
     public List<Restaurante> findAll() {
         return (List<Restaurante>) restauranteDao.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Restaurante findById(Long id) {
+        return restauranteDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Restaurante save(Restaurante restaurante) {
+        return restauranteDao.save(restaurante);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        restauranteDao.deleteById(id);
+
     }
 }

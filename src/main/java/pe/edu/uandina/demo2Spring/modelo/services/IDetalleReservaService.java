@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface IDetalleReservaService {
     public List<DetalleReserva> findAll();
+    public DetalleReserva findById(Long id);
+    public DetalleReserva save(DetalleReserva detalleReserva);
+    public void delete(Long id);
 }

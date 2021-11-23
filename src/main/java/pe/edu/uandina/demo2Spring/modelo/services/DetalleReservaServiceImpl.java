@@ -19,4 +19,23 @@ public class DetalleReservaServiceImpl implements IDetalleReservaService{
         return (List<DetalleReserva>) detalleReservaDao.findAll();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public DetalleReserva findById(Long id) {
+        return detalleReservaDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public DetalleReserva save(DetalleReserva detalleReserva) {
+        return detalleReservaDao.save(detalleReserva);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        detalleReservaDao.deleteById(id);
+
+    }
+
 }

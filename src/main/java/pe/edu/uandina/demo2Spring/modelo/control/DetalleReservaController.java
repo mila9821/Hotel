@@ -20,4 +20,24 @@ public class DetalleReservaController {
         return detalleReservaService.findAll();
     }
 
+    @PostMapping("/detalle")
+    @ResponseStatus(HttpStatus.CREATED)
+    public DetalleReserva crear(@RequestBody DetalleReserva detalleReserva) {
+        return detalleReservaService.save(detalleReserva);
+    }
+
+    @PutMapping("/detalle/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public DetalleReserva actualizar(@RequestBody DetalleReserva detalleReserva, @PathVariable Long id){
+        DetalleReserva detalleOriginal = detalleReservaService.findById(id);
+        detalleOriginal.setPrecio(detalleOriginal.getPrecio());
+        return detalleReservaService.save(detalleReserva);
+    }
+
+    @DeleteMapping("/detalle/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminar(@PathVariable Long id) {
+        detalleReservaService.delete(id);
+    }
+
 }

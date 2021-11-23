@@ -19,4 +19,22 @@ public class AdministradorServiceImpl implements IAdministradorService{
         return (List<Administrador>) administradorDao.findAll();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Administrador findById(Long id) {
+        return administradorDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Administrador save(Administrador administrador) {
+        return administradorDao.save(administrador);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        administradorDao.deleteById(id);
+    }
+
 }
