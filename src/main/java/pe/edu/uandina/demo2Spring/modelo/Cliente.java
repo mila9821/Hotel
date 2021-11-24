@@ -4,6 +4,7 @@ package pe.edu.uandina.demo2Spring.modelo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,6 +37,25 @@ public class Cliente {
     @OneToMany(mappedBy = "tieneDetalleReserva")
     @JsonManagedReference
     private List<DetalleReserva> detalleReservas;
+
+    public List<Testimonio> getTestimonios() {
+        return testimonios;
+    }
+
+    public void setTestimonios(List<Testimonio> testimonios) {
+        this.testimonios = testimonios;
+    }
+
+    public List<DetalleReserva> getDetalleReservas() {
+        return detalleReservas;
+    }
+
+    public void setDetalleReservas(List<DetalleReserva> detalleReservas) {
+        if(this.detalleReservas == null) {
+            this.detalleReservas = new ArrayList<>();
+        }
+        this.detalleReservas = detalleReservas;
+    }
 
     public Cliente() {
     }

@@ -30,12 +30,11 @@ public class DetalleReserva {
     @JsonBackReference
     private Cliente tieneDetalleReserva;
 
-    //referencia de muchos a uno para tieneRestaurante
+
     @OneToMany(mappedBy = "tieneRestaurante")
     @JsonManagedReference
     private List<Restaurante> restaurantes;
 
-    //referencia de muchos a uno para tieneHabitacion
     @ManyToOne
     @JoinColumn(name = "tieneHabitacion", referencedColumnName = "id")
     @JsonBackReference
