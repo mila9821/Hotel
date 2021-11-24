@@ -3,6 +3,7 @@ package pe.edu.uandina.demo2Spring.modelo.control;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.uandina.demo2Spring.modelo.Cliente;
 import pe.edu.uandina.demo2Spring.modelo.Habitacion;
 import pe.edu.uandina.demo2Spring.modelo.Restaurante;
 import pe.edu.uandina.demo2Spring.modelo.services.IRestauranteService;
@@ -18,6 +19,11 @@ public class RestauranteController {
     @GetMapping("/restaurante")
     public List<Restaurante> listar(){
         return restauranteService.findAll();
+    }
+
+    @GetMapping("/restaurante/{id}")
+    public Restaurante mostrar(@PathVariable Long id){
+        return restauranteService.findById(id);
     }
 
     @PostMapping("/restaurante")

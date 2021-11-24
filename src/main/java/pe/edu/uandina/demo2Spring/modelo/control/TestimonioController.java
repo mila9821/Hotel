@@ -3,6 +3,7 @@ package pe.edu.uandina.demo2Spring.modelo.control;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.uandina.demo2Spring.modelo.Cliente;
 import pe.edu.uandina.demo2Spring.modelo.Restaurante;
 import pe.edu.uandina.demo2Spring.modelo.Testimonio;
 import pe.edu.uandina.demo2Spring.modelo.services.ITestimonioService;
@@ -18,6 +19,11 @@ public class TestimonioController {
     @GetMapping("/testimonio")
     public List<Testimonio> listar(){
         return testimonioService.findAll();
+    }
+
+    @GetMapping("/testimonio/{id}")
+    public Testimonio mostrar(@PathVariable Long id){
+        return testimonioService.findById(id);
     }
 
     @PostMapping("/testimonio")

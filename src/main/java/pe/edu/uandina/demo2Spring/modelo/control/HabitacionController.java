@@ -3,6 +3,7 @@ package pe.edu.uandina.demo2Spring.modelo.control;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.uandina.demo2Spring.modelo.Cliente;
 import pe.edu.uandina.demo2Spring.modelo.DetalleReserva;
 import pe.edu.uandina.demo2Spring.modelo.Habitacion;
 import pe.edu.uandina.demo2Spring.modelo.services.IHabitacionService;
@@ -18,6 +19,11 @@ public class HabitacionController {
     @GetMapping("/habitacion")
     public List<Habitacion> listar() {
         return  habitacionService.findAll();
+    }
+
+    @GetMapping("/habitacion/{id}")
+    public Habitacion mostrar(@PathVariable Long id){
+        return habitacionService.findById(id);
     }
 
     @PostMapping("/habitacion")
