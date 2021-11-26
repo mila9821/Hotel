@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -14,9 +15,9 @@ public class DetalleReserva {
     @Column(name = "id")
     private long id;
     @Column(name = "ingreso")
-    private String ingreso;
+    private LocalDate ingreso;
     @Column(name = "salida")
-    private String salida;
+    private LocalDate salida;
     @Column(name = "precio")
     private float precio;
     @Column(name = "adelanto")
@@ -27,24 +28,24 @@ public class DetalleReserva {
    // cliente
     @ManyToOne
     @JoinColumn(name = "tieneDetalleReserva", referencedColumnName = "id")
-    @JsonBackReference
+    @JsonBackReference(value = "tieneDetalleReserva")
     private Cliente tieneDetalleReserva;
 
 
     @OneToMany(mappedBy = "tieneRestaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value = "tieneRestaurante")
     private List<Restaurante> restaurantes;
 
     @ManyToOne
     @JoinColumn(name = "tieneHabitacion", referencedColumnName = "id")
-    @JsonBackReference
+    @JsonBackReference(value = "tieneHabitacion")
     private Habitacion tieneHabitacion;
 
 
     public DetalleReserva() {
     }
 
-    public DetalleReserva(String ingreso, String salida, float precio, float adelanto, Integer dias) {
+    public DetalleReserva(LocalDate ingreso, LocalDate salida, float precio, float adelanto, Integer dias) {
         this.ingreso = ingreso;
         this.salida = salida;
         this.precio = precio;
@@ -60,19 +61,19 @@ public class DetalleReserva {
         this.id = id;
     }
 
-    public String getIngreso() {
+    public LocalDate getIngreso() {
         return ingreso;
     }
 
-    public void setIngreso(String ingreso) {
+    public void setIngreso(LocalDate ingreso) {
         this.ingreso = ingreso;
     }
 
-    public String getSalida() {
+    public LocalDate getSalida() {
         return salida;
     }
 
-    public void setSalida(String salida) {
+    public void setSalida(LocalDate salida) {
         this.salida = salida;
     }
 

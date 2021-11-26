@@ -26,7 +26,7 @@ public class AdministradorServiceImpl implements IAdministradorService{
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public Administrador save(Administrador administrador) {
         return administradorDao.save(administrador);
     }

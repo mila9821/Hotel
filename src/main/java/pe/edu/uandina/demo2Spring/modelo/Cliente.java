@@ -31,11 +31,11 @@ public class Cliente {
 
 
     @OneToMany(mappedBy = "tieneTestimonio")
-    @JsonManagedReference
+    @JsonManagedReference (value = "tieneTestimonio")
     private List<Testimonio> testimonios;
 
     @OneToMany(mappedBy = "tieneDetalleReserva")
-    @JsonManagedReference
+    @JsonManagedReference (value = "tieneDetalleReserva")
     private List<DetalleReserva> detalleReservas;
 
     public List<Testimonio> getTestimonios() {

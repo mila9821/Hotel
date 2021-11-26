@@ -10,8 +10,8 @@ insert into administrador(contrasena, estado, nombre, tarea, usuario) values("12
 insert into cliente(dni, email, foto, modo, nombre, pais, telefono) values("74052189", "cliente01@gmail.com", "foto", "activo", "Carlos", "Argentina", "985412503");
 insert into cliente(dni, email, foto, modo, nombre, pais, telefono) values("45201369", "cliente02@gmail.com", "foto", "activo", "Juana", "Peruana", "995623541");
 
-insert into detalle_reserva(adelanto, dias, ingreso, precio, salida) values(20, 2, "22/11/21", 35, "24/11/21");
-insert into detalle_reserva(adelanto, dias, ingreso, precio, salida) values(30, 2, "26/11/21", 65, "28/11/21");
+insert into detalle_reserva(adelanto, dias, ingreso, precio, salida) values(20, 2, "2021-11-22", 35, "2021-11-24");
+insert into detalle_reserva(adelanto, dias, ingreso, precio, salida) values(30, 2, "2021-11-24", 65, "2021-11-26");
 
 insert into habitacion(descripcion, estado, foto, nombre, precio, tipo) values("dos camas, ducha caliente, wifi", "ocupado", "foto", "501", 60, "Doble");
 insert into habitacion(descripcion, estado, foto, nombre, precio, tipo) values("una cama, cable, wifi", "reservado", "foto", "502", 30, "Simple");

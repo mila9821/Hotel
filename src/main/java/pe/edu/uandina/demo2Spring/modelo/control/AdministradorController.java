@@ -32,15 +32,14 @@ public class AdministradorController {
         return administradorService.save(administrador);
     }
 
-    @PutMapping("/administradores/ {id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @PutMapping("/administradores/{id}")
     public Administrador actualizar(@RequestBody Administrador administrador, @PathVariable Long id){
         Administrador administradorOriginal = administradorService.findById(id);
         administradorOriginal.setNombre(administrador.getNombre());
-        return administradorService.save(administrador);
+        return administradorService.save(administradorOriginal);
     }
 
-    @DeleteMapping("/administradores/ {id}")
+    @DeleteMapping("/administradores/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         administradorService.delete(id);

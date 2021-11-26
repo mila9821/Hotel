@@ -25,7 +25,7 @@ public class RestauranteServiceImpl implements IRestauranteService{
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public Restaurante save(Restaurante restaurante) {
         return restauranteDao.save(restaurante);
     }

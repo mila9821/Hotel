@@ -24,18 +24,17 @@ public class ClienteController {
         return clienteService.findById(id);
     }
 
-    @PostMapping("/cliente")
+    @PostMapping("/clientes")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente crear(@RequestBody Cliente cliente) {
         return clienteService.save(cliente);
     }
 
     @PutMapping("/clientes/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Cliente actualizar(@RequestBody Cliente cliente, @PathVariable Long id){
         Cliente clienteOriginal = clienteService.findById(id);
         clienteOriginal.setNombre(cliente.getNombre());
-        return clienteService.save(cliente);
+        return clienteService.save(clienteOriginal);
     }
 
     @DeleteMapping("/clientes/{id}")

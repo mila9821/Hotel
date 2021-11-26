@@ -25,7 +25,7 @@ public class TestimonioServiceImpl implements ITestimonioService{
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public Testimonio save(Testimonio testimonio) {
         return testimonioDao.save(testimonio);
     }

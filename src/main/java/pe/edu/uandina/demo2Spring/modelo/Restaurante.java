@@ -22,7 +22,7 @@ public class Restaurante {
     //    pertenece a un detalleReserva
     @ManyToOne
     @JoinColumn(name = "tieneRestaurante", referencedColumnName = "id")
-    @JsonBackReference
+    @JsonBackReference(value = "tieneRestaurante")
     private DetalleReserva tieneRestaurante;
 
     public Restaurante() {

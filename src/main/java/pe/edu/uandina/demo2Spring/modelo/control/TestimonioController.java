@@ -33,11 +33,10 @@ public class TestimonioController {
     }
 
     @PutMapping("/testimonio/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Testimonio actualizar(@RequestBody Testimonio testimonio, @PathVariable Long id){
         Testimonio testimonioOriginal = testimonioService.findById(id);
-        testimonioOriginal.setEstado(testimonioOriginal.getEstado());
-        return testimonioService.save(testimonio);
+        testimonioOriginal.setEstado(testimonio.getEstado());
+        return testimonioService.save(testimonioOriginal);
     }
 
     @DeleteMapping("/testimonio/{id}")

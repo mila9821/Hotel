@@ -33,11 +33,10 @@ public class DetalleReservaController {
     }
 
     @PutMapping("/detalle/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public DetalleReserva actualizar(@RequestBody DetalleReserva detalleReserva, @PathVariable Long id){
-        DetalleReserva detalleOriginal = detalleReservaService.findById(id);
-        detalleOriginal.setPrecio(detalleOriginal.getPrecio());
-        return detalleReservaService.save(detalleReserva);
+        DetalleReserva detalleReservaOriginal = detalleReservaService.findById(id);
+        detalleReservaOriginal.setPrecio(detalleReserva.getPrecio());
+        return detalleReservaService.save(detalleReservaOriginal);
     }
 
     @DeleteMapping("/detalle/{id}")

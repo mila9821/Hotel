@@ -26,7 +26,7 @@ public class DetalleReservaServiceImpl implements IDetalleReservaService{
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public DetalleReserva save(DetalleReserva detalleReserva) {
         return detalleReservaDao.save(detalleReserva);
     }

@@ -19,7 +19,7 @@ public class Testimonio {
 
     @ManyToOne
     @JoinColumn(name = "tieneTestimonio", referencedColumnName = "id")
-    @JsonBackReference
+    @JsonBackReference (value = "tieneTestimonio")
     private Cliente tieneTestimonio;
 
     public Testimonio() {

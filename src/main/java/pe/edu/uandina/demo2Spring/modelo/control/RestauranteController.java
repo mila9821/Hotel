@@ -33,11 +33,10 @@ public class RestauranteController {
     }
 
     @PutMapping("/restaurante/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Restaurante actualizar(@RequestBody Restaurante restaurante, @PathVariable Long id){
         Restaurante restauranteOriginal = restauranteService.findById(id);
-        restauranteOriginal.setPrecioPlato(restauranteOriginal.getPrecioPlato());
-        return restauranteService.save(restaurante);
+        restauranteOriginal.setPrecioPlato(restaurante.getPrecioPlato());
+        return restauranteService.save(restauranteOriginal);
     }
 
     @DeleteMapping("/restaurante/{id}")

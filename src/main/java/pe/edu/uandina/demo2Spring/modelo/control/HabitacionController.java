@@ -33,11 +33,10 @@ public class HabitacionController {
     }
 
     @PutMapping("/habitacion/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Habitacion actualizar(@RequestBody Habitacion habitacion, @PathVariable Long id){
         Habitacion habitacionOriginal = habitacionService.findById(id);
-        habitacionOriginal.setEstado(habitacionOriginal.getEstado());
-        return habitacionService.save(habitacion);
+        habitacionOriginal.setEstado(habitacion.getEstado());
+        return habitacionService.save(habitacionOriginal);
     }
 
     @DeleteMapping("/habitacion/{id}")

@@ -24,7 +24,7 @@ public class HabitacionServiceImpl implements IHabitacionService{
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public Habitacion save(Habitacion habitacion) {
         return habitacionDao.save(habitacion);
     }
